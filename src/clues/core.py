@@ -26,6 +26,7 @@ from clues.investigators.os_error import OSErrorInvestigator
 from clues.investigators.is_a_directory_error import IsADirectoryErrorInvestigator
 from clues.investigators.not_a_directory_error import NotADirectoryErrorInvestigator
 from clues.investigators.timeout_error import TimeoutErrorInvestigator
+from clues.investigators.csv_error import CSVErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -60,6 +61,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     OSErrorInvestigator(),
     NotImplementedErrorInvestigator(),
     RuntimeErrorInvestigator(),
+    CSVErrorInvestigator(),
 
 ]
 
