@@ -16,6 +16,7 @@ from clues.investigators.type_error import TypeErrorInvestigator
 from clues.investigators.value_error import ValueErrorInvestigator
 from clues.investigators.name_error import NameErrorInvestigator
 from clues.investigators.zero_division_error import ZeroDivisionErrorInvestigator
+from clues.investigators.permission_error import PermissionErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -40,6 +41,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     ValueErrorInvestigator(),
     NameErrorInvestigator(),
     ZeroDivisionErrorInvestigator(),
+    PermissionErrorInvestigator(),
 ]
 
 
