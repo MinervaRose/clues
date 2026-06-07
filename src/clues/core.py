@@ -30,6 +30,7 @@ from clues.investigators.csv_error import CSVErrorInvestigator
 from clues.investigators.pandas_key_error import PandasKeyErrorInvestigator
 from clues.investigators.pandas_empty_data_error import PandasEmptyDataErrorInvestigator
 from clues.investigators.numpy_shape_error import NumPyShapeErrorInvestigator
+from clues.investigators.cuda_out_of_memory_error import CUDAOutOfMemoryErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -66,6 +67,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     TimeoutErrorInvestigator(),
     OSErrorInvestigator(),
     NotImplementedErrorInvestigator(),
+    CUDAOutOfMemoryErrorInvestigator(),
     RuntimeErrorInvestigator(),
     CSVErrorInvestigator(),
 
