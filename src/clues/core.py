@@ -29,6 +29,7 @@ from clues.investigators.timeout_error import TimeoutErrorInvestigator
 from clues.investigators.csv_error import CSVErrorInvestigator
 from clues.investigators.pandas_key_error import PandasKeyErrorInvestigator
 from clues.investigators.pandas_empty_data_error import PandasEmptyDataErrorInvestigator
+from clues.investigators.numpy_shape_error import NumPyShapeErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -55,6 +56,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     UnicodeDecodeErrorInvestigator(),
     JSONDecodeErrorInvestigator(),
     PandasEmptyDataErrorInvestigator(),
+    NumPyShapeErrorInvestigator(),
     ValueErrorInvestigator(),
     NameErrorInvestigator(),
     ZeroDivisionErrorInvestigator(),
