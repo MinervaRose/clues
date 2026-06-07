@@ -23,6 +23,7 @@ from clues.investigators.not_implemented_error import NotImplementedErrorInvesti
 from clues.investigators.import_error import ImportErrorInvestigator
 from clues.investigators.runtime_error import RuntimeErrorInvestigator
 from clues.investigators.os_error import OSErrorInvestigator
+from clues.investigators.is_a_directory_error import IsADirectoryErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -51,6 +52,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     NameErrorInvestigator(),
     ZeroDivisionErrorInvestigator(),
     PermissionErrorInvestigator(),
+    IsADirectoryErrorInvestigator(),
     OSErrorInvestigator(),
     NotImplementedErrorInvestigator(),
     RuntimeErrorInvestigator(),
