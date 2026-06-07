@@ -1,8 +1,8 @@
 # 🕵️ Clues
 
-![Tests](https://img.shields.io/badge/tests-25%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-28%20passing-brightgreen.svg)
 ![Investigators](https://img.shields.io/badge/investigators-25-purple.svg)
-![Status](https://img.shields.io/badge/status-v0.1.0--alpha-orange.svg)
+![Status](https://img.shields.io/badge/status-v0.3.0--alpha-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 **Human-readable Python exception investigations.**
