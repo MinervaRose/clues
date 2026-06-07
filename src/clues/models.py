@@ -103,3 +103,17 @@ class InvestigationReport:
     def save_markdown(self, path: str) -> None:
         with open(path, "w", encoding="utf-8") as file:
             file.write(self.to_markdown())
+
+    def to_dict(self) -> dict:
+        return {
+            "likely_cause": self.likely_cause,
+            "confidence": self.confidence,
+            "clues": [
+                clue.text
+                for clue in self.clues
+            ],
+            "recommendations": [
+                recommendation.text
+                for recommendation in self.recommendations
+            ],
+        }
