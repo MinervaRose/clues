@@ -25,6 +25,7 @@ from clues.investigators.runtime_error import RuntimeErrorInvestigator
 from clues.investigators.os_error import OSErrorInvestigator
 from clues.investigators.is_a_directory_error import IsADirectoryErrorInvestigator
 from clues.investigators.not_a_directory_error import NotADirectoryErrorInvestigator
+from clues.investigators.timeout_error import TimeoutErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -55,6 +56,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     PermissionErrorInvestigator(),
     IsADirectoryErrorInvestigator(),
     NotADirectoryErrorInvestigator(),
+    TimeoutErrorInvestigator(),
     OSErrorInvestigator(),
     NotImplementedErrorInvestigator(),
     RuntimeErrorInvestigator(),
