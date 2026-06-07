@@ -68,3 +68,34 @@ class InvestigationReport:
             lines.append("No specific recommendations are available yet.")
 
         return "\n".join(lines)
+
+    def to_markdown(self) -> str:
+        lines = [
+            "# Investigation Report",
+            "",
+            "## Likely Cause",
+            "",
+            self.likely_cause,
+            "",
+            "## Confidence",
+            "",
+            f"{self.confidence:.0%}",
+            "",
+            "## Clues",
+            "",
+        ]
+
+        lines += [f"- {clue.text}" for clue in self.clues]
+
+        lines += [
+            "",
+            "## Recommendations",
+            "",
+        ]
+
+        lines += [
+            f"{i}. {rec.text}"
+            for i, rec in enumerate(self.recommendations, start=1)
+        ]
+
+        return "\n".join(lines)
