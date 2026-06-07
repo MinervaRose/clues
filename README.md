@@ -1,8 +1,8 @@
 # 🕵️ Clues
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen.svg)
-![Status](https://img.shields.io/badge/status-alpha-orange.svg)
+![Tests](https://img.shields.io/badge/tests-25%20passing-brightgreen.svg)
+![Investigators](https://img.shields.io/badge/investigators-25-purple.svg)
+![Status](https://img.shields.io/badge/status-v0.1.0--alpha-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 **Human-readable Python exception investigations.**
