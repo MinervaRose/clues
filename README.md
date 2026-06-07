@@ -1,85 +1,32 @@
-# Clues
+# 🕵️ Clues
 
-**Clues investigates Python exceptions and produces human-readable reports with likely causes, supporting clues, confidence, and recommended fixes.**
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen.svg)
+![Status](https://img.shields.io/badge/status-alpha-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-```python
-from clues import investigate
+**Human-readable Python exception investigations.**
 
-try:
-    process_data()
-except Exception as exc:
-    report = investigate(exc)
-    print(report)
-```
+Clues transforms Python exceptions into structured investigation reports containing:
 
-Example output:
+* 🔎 Likely cause
+* 🧩 Supporting clues
+* 📊 Confidence score
+* 💡 Practical recommendations
 
-```text
-Investigation Report
-====================
+Instead of reading a raw traceback, Clues helps developers understand **what probably happened and what to do next.**
 
-Likely Cause
-------------
-The requested file does not exist.
-
-Confidence
-----------
-95%
-
-Clues
------
-✓ FileNotFoundError detected.
-✓ Missing path: data/users.csv
-
-Recommendations
----------------
-1. Check that the file path is spelled correctly.
-2. Verify your current working directory.
-3. Consider using an absolute path while debugging.
-```
+---
 
 ## Philosophy
 
-Debugging is not about certainty. It is about gathering clues.
+Debugging is rarely about certainty.
 
-Clues does not pretend to magically fix every bug. It surfaces useful evidence and suggests likely next steps.
+It is about collecting evidence.
 
-## Current MVP
+Clues does not claim to know the answer. It investigates the exception and surfaces the strongest clues.
 
-Version `0.1.0` includes investigators for:
-
-- `KeyError`
-- `FileNotFoundError`
-- `ModuleNotFoundError`
-
-## Installation for local development
-
-```bash
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install -U pip
-.venv\Scripts\python.exe -m pip install -e .[dev]
-```
-
-On macOS/Linux:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -U pip
-python -m pip install -e .[dev]
-```
-
-## Run tests
-
-```bash
-.venv\Scripts\python.exe -m pytest
-```
-
-On macOS/Linux:
-
-```bash
-pytest
-```
+---
 
 ## Example
 
@@ -87,21 +34,143 @@ pytest
 from clues import investigate
 
 try:
-    user = {"name": "Ada"}
-    print(user["email"])
+    {}["user_id"]
 except Exception as exc:
     report = investigate(exc)
     print(report)
 ```
 
+Output:
+
+```text
+Investigation Report
+====================
+
+Likely Cause
+------------
+A dictionary-like object does not contain the key 'user_id'.
+
+Confidence
+----------
+95%
+
+Clues
+-----
+✓ KeyError detected.
+✓ Missing key: 'user_id'.
+
+Recommendations
+---------------
+1. Print or inspect the available keys with data.keys().
+2. Check whether the key name is misspelled.
+3. Use data.get(key) when the key is optional.
+4. Verify that upstream data contains the expected field.
+```
+
+---
+
+## Current Investigators
+
+### Core Python
+
+* ✅ KeyError
+* ✅ FileNotFoundError
+* ✅ ModuleNotFoundError
+* ✅ ImportError
+* ✅ IndexError
+* ✅ AttributeError
+* ✅ TypeError
+* ✅ ValueError
+* ✅ NameError
+* ✅ ZeroDivisionError
+* ✅ PermissionError
+* ✅ JSONDecodeError
+* ✅ UnicodeDecodeError
+* ✅ NotImplementedError
+
+---
+
+## Installation
+
+```bash
+pip install clues
+```
+
+Or directly from GitHub:
+
+```bash
+pip install git+https://github.com/MinervaRose/clues.git
+```
+
+---
+
 ## Roadmap
 
-- Add `TypeError`, `AttributeError`, `IndexError`, `JSONDecodeError`
-- Add traceback-aware investigation
-- Add local-variable clues where safe and explicit
-- Add framework-specific investigators: Pandas, SQLAlchemy, FastAPI
-- Add CLI: `clues traceback.txt`
-- Add plugin system for custom investigators
+### v0.1.0-alpha
+
+* Core Python exception investigators
+* Human-readable reports
+* Automated test suite
+
+### v1.0
+
+* 25 investigators
+* Data science investigators
+* AI/ML investigators
+* Improved report formatting
+
+### v2.0
+
+Runtime-aware investigations:
+
+```python
+report = investigate(
+    exc,
+    locals=locals()
+)
+```
+
+### v3.0
+
+Plugin architecture:
+
+```python
+@clues.investigator
+class CustomInvestigator:
+    ...
+```
+
+### v4.0
+
+Optional AI-assisted investigations for unknown exceptions.
+
+---
+
+## Project Goals
+
+Clues is designed to support:
+
+* Python learners
+* Students
+* Bootcamps
+* Mentors
+* Educators
+* Developers who want more human-readable debugging
+
+---
+
+## Contributing
+
+New investigators are welcome.
+
+Every investigator should provide:
+
+* likely cause
+* supporting clues
+* confidence score
+* practical recommendations
+
+---
 
 ## License
 
