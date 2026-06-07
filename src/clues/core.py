@@ -12,6 +12,9 @@ from clues.investigators.index_error import IndexErrorInvestigator
 from clues.investigators.attribute_error import (
     AttributeErrorInvestigator,
 )
+from clues.investigators.type_error import TypeErrorInvestigator
+from clues.investigators.value_error import ValueErrorInvestigator
+from clues.investigators.name_error import NameErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -32,6 +35,9 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     KeyErrorInvestigator(),
     IndexErrorInvestigator(),
     AttributeErrorInvestigator(),
+    TypeErrorInvestigator(),
+    ValueErrorInvestigator(),
+    NameErrorInvestigator(),
 ]
 
 
