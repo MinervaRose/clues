@@ -13,6 +13,7 @@ from clues.investigators.attribute_error import (
     AttributeErrorInvestigator,
 )
 from clues.investigators.type_error import TypeErrorInvestigator
+from clues.investigators.unicode_decode_error import UnicodeDecodeErrorInvestigator
 from clues.investigators.value_error import ValueErrorInvestigator
 from clues.investigators.name_error import NameErrorInvestigator
 from clues.investigators.zero_division_error import ZeroDivisionErrorInvestigator
@@ -39,6 +40,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     IndexErrorInvestigator(),
     AttributeErrorInvestigator(),
     TypeErrorInvestigator(),
+    UnicodeDecodeErrorInvestigator(),
     JSONDecodeErrorInvestigator(),
     ValueErrorInvestigator(),
     NameErrorInvestigator(),
