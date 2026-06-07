@@ -27,6 +27,7 @@ from clues.investigators.is_a_directory_error import IsADirectoryErrorInvestigat
 from clues.investigators.not_a_directory_error import NotADirectoryErrorInvestigator
 from clues.investigators.timeout_error import TimeoutErrorInvestigator
 from clues.investigators.csv_error import CSVErrorInvestigator
+from clues.investigators.pandas_key_error import PandasKeyErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -45,6 +46,7 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     ModuleNotFoundInvestigator(),
     ImportErrorInvestigator(),
     FileNotFoundInvestigator(),
+    PandasKeyErrorInvestigator(),
     KeyErrorInvestigator(),
     IndexErrorInvestigator(),
     AttributeErrorInvestigator(),
