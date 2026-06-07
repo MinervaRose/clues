@@ -8,6 +8,10 @@ from clues.models import Clue, InvestigationReport, Recommendation
 from clues.investigators.file_not_found import FileNotFoundInvestigator
 from clues.investigators.key_error import KeyErrorInvestigator
 from clues.investigators.module_not_found import ModuleNotFoundInvestigator
+from clues.investigators.index_error import IndexErrorInvestigator
+from clues.investigators.attribute_error import (
+    AttributeErrorInvestigator,
+)
 
 
 class Investigator(Protocol):
@@ -26,6 +30,8 @@ DEFAULT_INVESTIGATORS: list[Investigator] = [
     ModuleNotFoundInvestigator(),
     FileNotFoundInvestigator(),
     KeyErrorInvestigator(),
+    IndexErrorInvestigator(),
+    AttributeErrorInvestigator(),
 ]
 
 
