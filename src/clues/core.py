@@ -20,6 +20,7 @@ from clues.investigators.zero_division_error import ZeroDivisionErrorInvestigato
 from clues.investigators.permission_error import PermissionErrorInvestigator
 from clues.investigators.json_decode_error import JSONDecodeErrorInvestigator
 from clues.investigators.not_implemented_error import NotImplementedErrorInvestigator
+from clues.investigators.import_error import ImportErrorInvestigator
 
 
 class Investigator(Protocol):
@@ -36,6 +37,7 @@ class Investigator(Protocol):
 
 DEFAULT_INVESTIGATORS: list[Investigator] = [
     ModuleNotFoundInvestigator(),
+    ImportErrorInvestigator(),
     FileNotFoundInvestigator(),
     KeyErrorInvestigator(),
     IndexErrorInvestigator(),
