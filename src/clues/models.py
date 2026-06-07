@@ -99,3 +99,7 @@ class InvestigationReport:
         ]
 
         return "\n".join(lines)
+
+    def save_markdown(self, path: str) -> None:
+        with open(path, "w", encoding="utf-8") as file:
+            file.write(self.to_markdown())
